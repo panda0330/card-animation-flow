@@ -56,14 +56,16 @@ function AnimatedCardWrapper({ children, type = 0, className = '' }: AnimatedCar
         onMouseLeave={() => setIsHover(false)}
       >
         <div
-          className={`absolute w-[200%] h-[200%] z-[-1] top-[-50%] left-[-50%] rounded-full transition-all duration-300 ${
+          className={`absolute w-[300%] h-[300%] z-[-1] top-[-100%] left-[-100%] transition-all duration-300 ${
             isHover ? '' : ''
           }`}
           style={
             isHover
               ? {
-                  backgroundImage: `conic-gradient(transparent, ${shadowColor}, transparent 30%)`,
+                  backgroundImage: `conic-gradient(from 0deg, transparent 0deg, ${shadowColor} 90deg, transparent 180deg)`,
                   animation: `${rotateOneTurn} 5s linear infinite`,
+                  transformOrigin: 'center center',
+                  borderRadius: '50%',
                 }
               : {}
           }
@@ -87,7 +89,7 @@ export default function AnimatedCard({
 }: AnimatedCardProps) {
   return (
     <AnimatedCardWrapper type={type} className="max-w-[380px]">
-      <div className="w-full rounded-2xl bg-[#181c23] text-white shadow-2xl relative overflow-visible p-0 min-w-[300px] min-h-[300px]">
+      <div className="w-full rounded-2xl bg-[#181c23] text-white shadow-2xl relative overflow-visible p-0 min-w-[300px] min-h-[600px]">
        
       </div>
     </AnimatedCardWrapper>
